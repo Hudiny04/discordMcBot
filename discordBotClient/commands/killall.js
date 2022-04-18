@@ -6,7 +6,7 @@ module.exports = {
         .setName('killall')
         .setDescription('kill all players on server'),
     async execute(interaction) {
-         axios.get('http://127.0.0.1:8001/killall'
+         axios.get('http://127.0.0.1:8001/kill-all'
         ).then(function (response) {
             interaction.reply(response.data);
         }).catch(function (error) {

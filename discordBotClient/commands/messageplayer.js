@@ -10,7 +10,7 @@ module.exports = {
     async execute(interaction) {
         const target = interaction.options.get('target').value;
         const message = interaction.options.get('message').value;
-         axios.get('http://127.0.0.1:8001/kill', {
+         axios.get('http://127.0.0.1:8001/message', {
             params: {
                 target: target,
                 message: message

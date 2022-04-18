@@ -7,7 +7,7 @@ module.exports = {
     .setName('getonlineplayers')
     .setDescription('Getting all online players from server'),
 async execute(interaction) {
-     axios.get('http://127.0.0.1:8001/getOnlinePlayers'
+     axios.get('http://127.0.0.1:8001/get-online-players'
     ).then(function (response) {
         interaction.reply(response.data);
     }).catch(function (error) {

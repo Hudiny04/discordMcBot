@@ -6,7 +6,7 @@ module.exports = {
         .setName('starveall')
         .setDescription('starve all players on server'),
     async execute(interaction) {
-         axios.get('http://127.0.0.1:8001/starvePlayers'
+         axios.get('http://127.0.0.1:8001/starve-all'
         ).then(function (response) {
             interaction.reply(response.data);
         }).catch(function (error) {

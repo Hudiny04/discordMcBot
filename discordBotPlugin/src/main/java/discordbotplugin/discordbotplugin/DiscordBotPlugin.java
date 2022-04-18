@@ -24,7 +24,26 @@ public final class DiscordBotPlugin extends JavaPlugin {
     public void onEnable() {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8001), 0);
-            server.createContext("/giveallcookie", new HttpHandler() {
+            server.createContext("/get-online-players", new HttpHandler() {
+                @Override
+                public void handle(HttpExchange exchange) throws IOException {
+                    Collection<? extends Player> player = Bukkit.getServer().getOnlinePlayers();
+
+                    StringBuilder response = new StringBuilder();
+                    response.append(Bukkit.getOnlinePlayers().size()).append(": ");
+                    for (Player p : player) {
+                        response.append(p.getName()).append(" ");
+                    }
+
+                    exchange.sendResponseHeaders(200, response.length());
+                    exchange.getResponseBody().write(response.toString().getBytes());
+                    exchange.getResponseBody().close();
+
+                    getLogger().info("Getting online players");
+
+                }
+            });
+            server.createContext("/give-all-cookie", new HttpHandler() {
                 @Override
                 public void handle(HttpExchange exchange) throws IOException {
                     getLogger().info("Giving cookies to all players");
@@ -44,7 +63,23 @@ public final class DiscordBotPlugin extends JavaPlugin {
 
                 }
             });
-            server.createContext("/killall", new HttpHandler() {
+            server.createContext("/give-player-cookie", new HttpHandler() {
+                @Override
+                public void handle(HttpExchange exchange) throws IOException {
+                    getLogger().info("Giving cookie to specific players");
+
+                    String response = "Giving cookie to specific players";
+                    exchange.sendResponseHeaders(200, response.length());
+                    exchange.getResponseBody().write(response.getBytes());
+                    exchange.getResponseBody().close();
+
+                    ItemStack itemStack = new ItemStack(Material.COOKIE, 1, (short) 1);
+
+                    //TODO: Give cookie to specific player
+
+                }
+            });
+            server.createContext("/kill-all", new HttpHandler() {
                 @Override
                 public void handle(HttpExchange exchange) throws IOException {
 
@@ -60,68 +95,80 @@ public final class DiscordBotPlugin extends JavaPlugin {
                         p.setHealth(0);
                     }
                 }
-            });
-            server.createContext("/getOnlinePlayers", new HttpHandler() {
+            }); server.createContext("/kill", new HttpHandler() {
                 @Override
                 public void handle(HttpExchange exchange) throws IOException {
-                    Collection<? extends Player> player = Bukkit.getServer().getOnlinePlayers();
 
-                    StringBuilder response = new StringBuilder();
-                    response.append(Bukkit.getOnlinePlayers().size()).append(": ");
-                    for (Player p : player) {
-                        response.append(p.getName()).append(" ");
-                    }
-
+                    String response = "Kill specific players";
                     exchange.sendResponseHeaders(200, response.length());
-                    exchange.getResponseBody().write(response.toString().getBytes());
+                    exchange.getResponseBody().write(response.getBytes());
                     exchange.getResponseBody().close();
 
-                    getLogger().info("Getting online players");
+                    getLogger().info("Kill specific player");
 
+                    //TODO: Kill specific player
                 }
-            });server.createContext("/starvePlayers", new HttpHandler() {
+            });server.createContext("/message", new HttpHandler() {
                 @Override
                 public void handle(HttpExchange exchange) throws IOException {
-                    Collection<? extends Player> player = Bukkit.getServer().getOnlinePlayers();
 
+                    String response = "Message specific players";
+                    exchange.sendResponseHeaders(200, response.length());
+                    exchange.getResponseBody().write(response.getBytes());
+                    exchange.getResponseBody().close();
 
+                    getLogger().info("Message specific player");
+
+                    //TODO: Kill specific player
+                }
+            });
+            server.createContext("/starve-all", new HttpHandler() {
+                @Override
+                public void handle(HttpExchange exchange) throws IOException {
                     String response = "Starving all players";
 
                     exchange.sendResponseHeaders(200, response.length());
                     exchange.getResponseBody().write(response.toString().getBytes());
                     exchange.getResponseBody().close();
 
-                    getLogger().info("Getting online players");
+                    getLogger().info("Starving all players");
 
+                    Collection<? extends Player> player = Bukkit.getServer().getOnlinePlayers();
                     for (Player p : player) {
                         p.setFoodLevel(0);
                     }
+                }
+            });
+            server.createContext("/starve", new HttpHandler() {
+                @Override
+                public void handle(HttpExchange exchange) throws IOException {
+                    String response = "Starving specific player";
 
+                    exchange.sendResponseHeaders(200, response.length());
+                    exchange.getResponseBody().write(response.toString().getBytes());
+                    exchange.getResponseBody().close();
+
+                    getLogger().info("Starving specific player");
+
+                    //TODO: Starve specific player
+                }
+            });
+            server.createContext("/teleport-player", new HttpHandler() {
+                @Override
+                public void handle(HttpExchange exchange) throws IOException {
+                    String response = "Teleport player to player";
+
+                    exchange.sendResponseHeaders(200, response.length());
+                    exchange.getResponseBody().write(response.toString().getBytes());
+                    exchange.getResponseBody().close();
+
+                    getLogger().info("Teleport player to player");
+
+                    //TODO: Teleport player to player
                 }
             });
 
-         /*   server.createContext("/lightningStrikePlayers", new HttpHandler() {
-                @Override
-                public void handle(HttpExchange exchange) throws IOException {
 
-
-
-                    String response = "strike all players with lightning";
-
-                    exchange.sendResponseHeaders(200, response.length());
-                    exchange.getResponseBody().write(response.getBytes());
-                    exchange.getResponseBody().close();
-
-                    getLogger().info("Striking all players with lightning");
-                    Collection<? extends Player> player = Bukkit.getServer().getOnlinePlayers();
-                    for (Player p : player) {
-                        Location loc;
-                        loc = p.getLocation();
-                        LightningStrike lightning = (LightningStrike) loc.getWorld().strikeLightning(loc);
-                    }
-
-                }
-            });*/
             server.setExecutor(null); // creates a default executor
             server.start();
              getLogger().info(" Server started on port 8001");

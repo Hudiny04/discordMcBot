@@ -3,10 +3,16 @@ const axios = require('axios');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('starveplayers')
-        .setDescription('starve all players on server'),
+        .setName('starve')
+        .setDescription('starve specific player on server')
+        .addStringOption(option => option.setName('target').setDescription('target to kill')),
     async execute(interaction) {
-         axios.get('http://127.0.0.1:8001/starvePlayers'
+        const target = interaction.options.get('target').value;
+         axios.get('http://127.0.0.1:8001/starve', {
+            params: {
+                target: target
+            }
+         }
         ).then(function (response) {
             interaction.reply(response.data);
         }).catch(function (error) {

@@ -7,7 +7,7 @@ module.exports = {
     .setName('giveallcookie')
     .setDescription('gives all players on server cookie'),
 async execute(interaction) {
-     axios.get('http://127.0.0.1:8001/giveallcookie'
+     axios.get('http://127.0.0.1:8001/give-all-cookie'
     ).then(function (response) {
         interaction.reply(response.data);
     }).catch(function (error) {

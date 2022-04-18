@@ -1,0 +1,4 @@
+name: DiscordBotPlugin
+version: '${project.version}'
+main: discordbotplugin.discordbotplugin.DiscordBotPlugin
+api-version: 1.18

@@ -18,6 +18,7 @@ client.once('ready', () => {
 
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
+    if (!interaction.author.bot) return;
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
     try {
@@ -29,4 +30,10 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
+client.login(process.env.TOKEN);
+
+
+require('dotenv').config();
+const { Client } = require('discord.js');
+const client = new Client({});
 client.login(process.env.TOKEN);

@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const axios = require('axios');
+require('dotenv').config();
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('target').setDescription('target to kill')),
     async execute(interaction) {
         const target = interaction.options.get('target').value;
-         axios.get('http://127.0.0.1:8001/starve', {
+         axios.get(`${process.env.API}/starve`, {
             params: {
                 target: target
             }

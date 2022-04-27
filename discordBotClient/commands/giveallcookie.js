@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const axios = require('axios');
+require('dotenv').config();
 
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
     .setName('giveallcookie')
     .setDescription('gives all players on server cookie'),
 async execute(interaction) {
-     axios.get('http://127.0.0.1:8001/give-all-cookie'
+     axios.get(`${process.env.API}/give-all-cookie`
     ).then(function (response) {
         interaction.reply(response.data);
     }).catch(function (error) {

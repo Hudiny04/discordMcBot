@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const axios = require('axios');
+require('dotenv').config();
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,12 +9,14 @@ module.exports = {
         .addStringOption(option => option.setName('target').setDescription('target to message'))
         .addStringOption(option => option.setName('message').setDescription('message to send'), true),
     async execute(interaction) {
+        const author =interaction.member.user.username
         const target = interaction.options.get('target').value;
         const message = interaction.options.get('message').value;
-         axios.get('http://127.0.0.1:8001/message', {
+         axios.get(`${process.env.API}/message`, {
             params: {
                 target: target,
-                message: message
+                message: message,
+                author: author
             }
          }
         ).then(function (response) {

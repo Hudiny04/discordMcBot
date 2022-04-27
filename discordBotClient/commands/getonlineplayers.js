@@ -6,7 +6,7 @@ require('dotenv').config();
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('getonlineplayers')
-    .setDescription('Getting all online players from server'),
+    .setDescription('Gets all online players from the server'),
 async execute(interaction) {
      axios.get(`${process.env.API}/get-online-players`
     ).then(function (response) {

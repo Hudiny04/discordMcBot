@@ -17,10 +17,13 @@
     "discord": "^0.8.2",
     "discord-api-types": "^0.27.3",
     "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "http": "^0.0.1-security",
+    "https": "^1.0.0",
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1",
+    "unirest": "^0.6.0",
     "websocket": "^1.0.34"
   }
 }

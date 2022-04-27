@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const axios = require('axios');
+require('dotenv').config();
 
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
     .setName('getonlineplayers')
     .setDescription('Getting all online players from server'),
 async execute(interaction) {
-     axios.get('http://127.0.0.1:8001/get-online-players'
+     axios.get(`${process.env.API}/get-online-players`
     ).then(function (response) {
         interaction.reply(response.data);
     }).catch(function (error) {

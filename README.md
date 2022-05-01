@@ -21,4 +21,5 @@ https://discord.gg/yR8EAAcr7R
 
 # Minecraft server
 podporovaná verze 1.18.1
+
 plugin vytvořen pro Spigot server

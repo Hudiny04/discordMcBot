@@ -1,5 +1,5 @@
 # discordMcBotClient
-env file
+env file v discordBotClient
 
 TOKEN= OTQ5MzM3MTk5MTM1MDMxMzY2.YiI5Kg.eD6q3pT_BCN7GXYlQsP-oeLH-iQ - (token bota)
 

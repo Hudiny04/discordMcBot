@@ -16,4 +16,3 @@ PORT=(port serveru, běží na 8001)
 
 ```npm start ``` - pro spuštění bota
 
-# discordMcBotClient

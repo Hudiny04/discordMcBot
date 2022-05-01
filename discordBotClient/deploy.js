@@ -17,5 +17,5 @@ rest.put(Routes.applicationGuildCommands(process.env.CLIENT, process.env.GUILD),
 	.then(() => console.log('Successfully registered application commands.'))
 	.catch(console.error);
 
-	rest.put(Routes.applicationCommands(clientId),{ body: commands });
+	
 	

@@ -18,7 +18,7 @@ client.once('ready', () => {
 
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
-    if (!interaction.author.bot) return;
+    if (interaction.user.bot) return;
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
     try {
@@ -26,14 +26,8 @@ client.on('interactionCreate', async interaction => {
         console.log("Command succesfull")
     } catch (error) {
         console.error(error);
-        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+        await interaction.reply({ content: 'Wrong command', ephemeral: true });
     }
 });
 
-client.login(process.env.TOKEN);
-
-
-require('dotenv').config();
-const { Client } = require('discord.js');
-const client = new Client({});
 client.login(process.env.TOKEN);

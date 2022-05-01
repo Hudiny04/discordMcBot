@@ -7,7 +7,7 @@ module.exports = {
         .setName('starveall')
         .setDescription('starve all players on server'),
     async execute(interaction) {
-         axios.get(`${process.env.API}/starve-all`
+         axios.get(`${process.env.API}${process.env.PORT}/starve-all`
         ).then(function (response) {
             interaction.reply(response.data);
         }).catch(function (error) {

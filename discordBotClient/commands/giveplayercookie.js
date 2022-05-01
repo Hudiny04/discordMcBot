@@ -9,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('target').setDescription('target to give cookie')),
     async execute(interaction) {
         const target = interaction.options.get('target').value;
-         axios.get(`${process.env.API}/give-player-cookie`, {
+         axios.get(`${process.env.API}${process.env.PORT}/give-player-cookie`, {
             params: {
                 target: target
             }

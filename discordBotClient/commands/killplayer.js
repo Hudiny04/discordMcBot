@@ -9,7 +9,7 @@ module.exports = {
         .addStringOption(option => option.setName('target').setDescription('target to kill')),
     async execute(interaction) {
         const target = interaction.options.get('target').value;
-         axios.get(`${process.env.API}/kill`, {
+         axios.get(`${process.env.API}${process.env.PORT}/kill`, {
             params: {
                 target: target
             }

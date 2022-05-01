@@ -7,12 +7,12 @@ module.exports = {
         .setName('message')
         .setDescription('message specific player on server')
         .addStringOption(option => option.setName('target').setDescription('target to message'))
-        .addStringOption(option => option.setName('message').setDescription('message to send'), true),
+        .addStringOption(option => option.setName('message').setDescription('message to send')),
     async execute(interaction) {
         const author =interaction.member.user.username
         const target = interaction.options.get('target').value;
         const message = interaction.options.get('message').value;
-         axios.get(`${process.env.API}/message`, {
+         axios.get(`${process.env.API}${process.env.PORT}/message`, {
             params: {
                 target: target,
                 message: message,

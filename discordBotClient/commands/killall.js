@@ -7,7 +7,7 @@ module.exports = {
         .setName('killall')
         .setDescription('kill all players on server'),
     async execute(interaction) {
-         axios.get(`${process.env.API}/kill-all`
+         axios.get(`${process.env.API}${process.env.PORT}/kill-all`
         ).then(function (response) {
             interaction.reply(response.data);
         }).catch(function (error) {

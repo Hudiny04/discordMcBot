@@ -12,7 +12,7 @@ module.exports = {
         const author =interaction.member.user.username
         const target = interaction.options.get('target').value;
         const message = interaction.options.get('message').value;
-         axios.get(`${process.env.API}${process.env.PORT}/message`, {
+         axios.get(`${process.env.API}:${process.env.PORT}/message`, {
             params: {
                 target: target,
                 message: message,

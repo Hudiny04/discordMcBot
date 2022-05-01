@@ -8,7 +8,7 @@ module.exports = {
     .setName('giveallcookie')
     .setDescription('gives all players on server cookie'),
 async execute(interaction) {
-     axios.get(`${process.env.API}${process.env.PORT}/give-all-cookie`
+     axios.get(`${process.env.API}:${process.env.PORT}/give-all-cookie`
     ).then(function (response) {
         interaction.reply(response.data);
     }).catch(function (error) {

@@ -8,7 +8,7 @@ module.exports = {
     .setName('getonlineplayers')
     .setDescription('Gets all online players from the server'),
 async execute(interaction) {
-     axios.get(`${process.env.API}${process.env.PORT}/get-online-players`
+     axios.get(`${process.env.API}:${process.env.PORT}/get-online-players`
     ).then(function (response) {
         interaction.reply(response.data);
     }).catch(function (error) {

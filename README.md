@@ -3,7 +3,7 @@ env file
 
 TOKEN=(token bota)
 
-CLIENT=(tvoje id na discordu) 
+CLIENT=(id bota z discordu) 
 
 GUILD=(id serveru kam chceš deploynout commandy) 
 

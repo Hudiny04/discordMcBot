@@ -7,7 +7,7 @@ CLIENT=949337199135031366  -(id bota z discordu)
 
 GUILD=949336942632403055  -(id serveru kam chceš deploynout commandy, momentalně id test serveru) 
 
-API=http://127.0.0.1:  -(url serveru) 
+API=http://127.0.0.1  -(url serveru) 
 
 PORT=8001  -(port serveru) 
 

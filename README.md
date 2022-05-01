@@ -16,3 +16,5 @@ PORT=8001  -(port serveru)
 
 ```npm start ``` - pro spuštění bota
 
+# TEST server invite link
+https://discord.gg/yR8EAAcr7R

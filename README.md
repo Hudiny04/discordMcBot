@@ -18,3 +18,6 @@ PORT=8001  -(port serveru)
 
 # TEST server invite link
 https://discord.gg/yR8EAAcr7R
+
+# Minecraft server
+podporovaná verze 1.18.1

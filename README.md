@@ -1,5 +1,5 @@
 # discordMcBotClient
-env file v discordBotClient
+env file in discordBotClient
 
 TOKEN= aplication token of the bot on form discord developer site
 

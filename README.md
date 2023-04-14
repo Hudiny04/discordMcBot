@@ -1,25 +1,23 @@
 # discordMcBotClient
 env file v discordBotClient
 
-TOKEN= OTQ5MzM3MTk5MTM1MDMxMzY2.YiI5Kg.eD6q3pT_BCN7GXYlQsP-oeLH-iQ - (token bota)
+TOKEN= aplication token of the bot on form discord developer site
 
-CLIENT=949337199135031366  -(id bota z discordu) 
+CLIENT= id of the bot in discord
 
-GUILD=949336942632403055  -(id serveru kam chceš deploynout commandy, momentalně id test serveru) 
+GUILD= server id on discord, where you want to put the bot
 
-API=http://127.0.0.1  -(url serveru) 
+API= servers url
 
-PORT=8001  -(port serveru) 
+PORT=servers port
 
 
-```node deploy.js``` - pro zaregistrování commandů
+```node deploy.js``` - for registering the bots command on the server
 
-```npm start ``` - pro spuštění bota
+```npm start ``` - for starting the bot
 
-# TEST server invite link
-https://discord.gg/yR8EAAcr7R
 
 # Minecraft server
-podporovaná verze 1.18.1
+supported version of minecraft = 1.18.1
 
-plugin vytvořen pro Spigot server
+plugin created for Spigot server

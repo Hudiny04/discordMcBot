@@ -1,7 +1,7 @@
 const { Client, Intents, GuildMember, Collection } = require('discord.js');
 const fs = require('node:fs');
 require('dotenv').config();
-
+const { CommandDeploy } = require('./deploy.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 client.commands = new Collection();
@@ -12,8 +12,12 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-client.once('ready', () => {
+client.once('ready', async () => {
     console.log('Ready!');
+    const guild = client.guilds.cache.forEach(guild => {
+        CommandDeploy(guild.id);
+    });
+    
 });
 
 client.on('interactionCreate', async interaction => {

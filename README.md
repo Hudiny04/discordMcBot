@@ -6,6 +6,7 @@ CLIENT= id of the bot in discord
 
 
 API= servers url
+
 PORT = servers port
 
 

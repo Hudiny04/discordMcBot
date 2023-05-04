@@ -5,10 +5,10 @@ require('dotenv').config();
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('giveallcookie')
+    .setName('give-everyone-cookie')
     .setDescription('gives all players on server cookie'),
 async execute(interaction) {
-     axios.get(`${process.env.API}:${process.env.PORT}/give-all-cookie`
+     axios.get(`${process.env.API}:${process.env.PORT}/give-everyone-cookie`
     ).then(function (response) {
         interaction.reply(response.data);
     }).catch(function (error) {

@@ -22,11 +22,11 @@ public class KillOne implements HttpHandler {
             Objects.requireNonNull(Bukkit.getPlayer(params.get("target"))).setHealth(0);
         }else{
             response = "No such player exists";
-
         }
         exchange.sendResponseHeaders(200, response.length());
         exchange.getResponseBody().write(response.getBytes());
         exchange.getResponseBody().close();
-        getLogger().info("Kill specific player request");
+
+        getLogger().info("Kill specific player");
     }
 }

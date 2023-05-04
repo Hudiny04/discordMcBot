@@ -12,7 +12,7 @@ import java.util.Collection;
 
 import static org.bukkit.Bukkit.getLogger;
 
-public class GiveCookieToAllHandler implements HttpHandler {
+public class GiveEveryoneCookie implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         String response = "Giving cookies to all players";

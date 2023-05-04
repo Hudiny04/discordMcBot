@@ -1,4 +1,4 @@
-const { Client, Intents, GuildMember, Collection } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const fs = require('node:fs');
 require('dotenv').config();
 const { CommandDeploy } = require('./deploy.js');
@@ -14,7 +14,7 @@ for (const file of commandFiles) {
 
 client.once('ready', async () => {
     console.log('Ready!');
-    const guild = client.guilds.cache.forEach(guild => {
+    guild = client.guilds.cache.forEach(guild => {
         CommandDeploy(guild.id);
     });
     

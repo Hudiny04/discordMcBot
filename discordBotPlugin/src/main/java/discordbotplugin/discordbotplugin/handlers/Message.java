@@ -11,7 +11,7 @@ import java.util.Objects;
 
 import static org.bukkit.Bukkit.getLogger;
 
-public class MessageHandler implements HttpHandler {
+public class Message implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         String response = "";
@@ -27,6 +27,6 @@ public class MessageHandler implements HttpHandler {
         exchange.getResponseBody().write(response.getBytes());
         exchange.getResponseBody().close();
 
-        getLogger().info("Message specific player request");
+        getLogger().info("Message specific player");
     }
 }

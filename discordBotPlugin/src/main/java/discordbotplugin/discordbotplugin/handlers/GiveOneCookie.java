@@ -14,7 +14,7 @@ import java.util.Objects;
 
 import static org.bukkit.Bukkit.getLogger;
 
-public class GiveCookieToOneHandler implements HttpHandler {
+public class GiveOneCookie implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
@@ -32,7 +32,7 @@ public class GiveCookieToOneHandler implements HttpHandler {
         exchange.getResponseBody().write(response.getBytes());
         exchange.getResponseBody().close();
 
-        getLogger().info("Giving cookie to specific player request");
+        getLogger().info("Giving cookie to specific player");
     };
 
 

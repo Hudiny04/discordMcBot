@@ -10,7 +10,7 @@ import java.util.Collection;
 
 import static org.bukkit.Bukkit.getLogger;
 
-public class OnlinePlayersHandler implements HttpHandler {
+public class OnlinePlayers implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         Collection<? extends Player> players = Bukkit.getServer().getOnlinePlayers();
@@ -23,7 +23,6 @@ public class OnlinePlayersHandler implements HttpHandler {
         exchange.getResponseBody().write(response.toString().getBytes());
         exchange.getResponseBody().close();
 
-        getLogger().info("Sending online Players on Discord");
-
+        getLogger().info("Sending online players on Discord");
     }
 }

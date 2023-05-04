@@ -10,18 +10,18 @@ import java.util.Collection;
 
 import static org.bukkit.Bukkit.getLogger;
 
-public class KillAllHandler implements HttpHandler {
+public class StarveEveryone implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        String response = "Killing all players";
+        String response = "Starving all players";
         exchange.sendResponseHeaders(200, response.length());
         exchange.getResponseBody().write(response.getBytes());
         exchange.getResponseBody().close();
         Collection<? extends Player> player = Bukkit.getServer().getOnlinePlayers();
         for (Player p : player) {
-            p.setHealth(0);
+            p.setFoodLevel(0);
         }
 
-        getLogger().info("Killing all players request");
+        getLogger().info("Starving all players");
     }
 }

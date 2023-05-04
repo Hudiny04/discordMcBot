@@ -4,10 +4,10 @@ require('dotenv').config();
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('killall')
+        .setName('kill-everyone')
         .setDescription('kill all players on server'),
     async execute(interaction) {
-         axios.get(`${process.env.API}:${process.env.PORT}/kill-all`
+         axios.get(`${process.env.API}:${process.env.PORT}/kill-everyone`
         ).then(function (response) {
             interaction.reply(response.data);
         }).catch(function (error) {

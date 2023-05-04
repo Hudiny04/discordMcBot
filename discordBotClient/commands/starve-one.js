@@ -4,12 +4,12 @@ require('dotenv').config();
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('givecookie')
-        .setDescription('give cookie specific player on server')
-        .addStringOption(option => option.setName('target').setDescription('target to give cookie')),
+        .setName('starve-one')
+        .setDescription('starve specific player on server')
+        .addStringOption(option => option.setName('target').setDescription('target to starve')),
     async execute(interaction) {
         const target = interaction.options.get('target').value;
-         axios.get(`${process.env.API}:${process.env.PORT}/give-player-cookie`, {
+         axios.get(`${process.env.API}:${process.env.PORT}/starve-one`, {
             params: {
                 target: target
             }

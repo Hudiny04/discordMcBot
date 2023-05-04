@@ -2,13 +2,10 @@ package discordbotplugin.discordbotplugin;
 
 import com.sun.net.httpserver.HttpServer;
 import discordbotplugin.discordbotplugin.handlers.*;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.*;
 
 public final class DiscordBotPlugin extends JavaPlugin {
 
@@ -16,14 +13,14 @@ public final class DiscordBotPlugin extends JavaPlugin {
     public void onEnable() {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 5000), 0);
-            server.createContext("/get-online-players", new OnlinePlayersHandler());
-            server.createContext("/give-all-cookie", new GiveCookieToAllHandler());
-            server.createContext("/give-player-cookie", new GiveCookieToOneHandler());
-            server.createContext("/kill-all", new KillAllHandler());
-            server.createContext("/kill", new KillOne());
-            server.createContext("/message", new MessageHandler());
-            server.createContext("/starve-all", new StarveAllHandler());
-            server.createContext("/starve", new StarveOneHandler());
+            server.createContext("/online-players", new OnlinePlayers());
+            server.createContext("/give-everyone-cookie", new GiveEveryoneCookie());
+            server.createContext("/give-one-cookie", new GiveOneCookie());
+            server.createContext("/kill-everyone", new KillEveryone());
+            server.createContext("/kill-one", new KillOne());
+            server.createContext("/message", new Message());
+            server.createContext("/starve-everyone", new StarveEveryone());
+            server.createContext("/starve-one", new StarveOne());
 
             server.setExecutor(null); // creates a default executor
             server.start();

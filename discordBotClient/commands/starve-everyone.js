@@ -4,16 +4,10 @@ require('dotenv').config();
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('kill')
-        .setDescription('kill specific player on server')
-        .addStringOption(option => option.setName('target').setDescription('target to kill')),
+        .setName('starve-everyone')
+        .setDescription('starve all players on server'),
     async execute(interaction) {
-        const target = interaction.options.get('target').value;
-         axios.get(`${process.env.API}:${process.env.PORT}/kill`, {
-            params: {
-                target: target
-            }
-         }
+         axios.get(`${process.env.API}:${process.env.PORT}/starve-everyone`
         ).then(function (response) {
             interaction.reply(response.data);
         }).catch(function (error) {
@@ -22,4 +16,4 @@ module.exports = {
           })
         return
     },
-};
+};  
